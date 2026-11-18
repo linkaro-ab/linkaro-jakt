@@ -92,12 +92,12 @@ h1 {
 }
 @media (max-width: 340px) { h1 { hyphens: auto; } }
 
-.ingress { max-width: 34em; margin-bottom: 32px; font-size: 1.1875rem; }
+.ingress { max-width: 34em; margin-bottom: 32px; font-size: 1.1875rem; text-wrap: pretty; }
 .kontakt { font-size: 1.0625rem; }
 
 /* ---------- Sidfot ---------- */
 footer { padding-block: 24px 32px; font-size: 0.9375rem; color: var(--text-svag); }
-footer .wrap { border-top: 1px solid var(--linje); padding-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.fot { border-top: 1px solid var(--linje); padding-top: 24px; display: flex; flex-direction: column; gap: 8px; }
 .lankar { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; padding: 0; list-style: none; }
 .lankar a { display: inline-block; padding-block: 4px; } /* minst 24 px klickyta (WCAG 2.5.8) */
 
