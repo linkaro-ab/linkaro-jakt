@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Redigerare
+.vscode/
+.idea/
+*.swp
+*~
+
+# Lokala verktyg och loggar
+node_modules/
+*.log
+.env
+
+# Byggd webbplats (skapas av npm run build)
+_site/

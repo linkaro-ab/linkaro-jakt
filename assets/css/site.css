@@ -1,0 +1,118 @@
+/* Linkaro – stilmall för undersidor (enduro, tech, jakt)
+   Gemensam för alla webbplatser från linkaro-subsite-template.
+   Det enda som skiljer webbplatserna åt här är --accent.
+   Typsnitt och logotyper kommer från linkaro-web (Linkaros designsystem). */
+
+/* ---------- Typsnitt (lokala filer, SIL Open Font License) ---------- */
+@font-face {
+  font-family: 'Outfit'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/outfit-latin-wght-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Outfit'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/outfit-latin-ext-wght-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(../fonts/atkinson-hyperlegible-next-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(../fonts/atkinson-hyperlegible-next-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* ---------- Variabler ----------
+   Kontrast mot --bas (#141719), WCAG 2.1:
+   --text 15.7:1 · --text-svag 8.6:1
+   Accent: enduro #FF8A3D 7.7:1 · tech #5CB8FF 8.4:1 · jakt #9DBA6A 8.3:1
+   Accenten används till namnraden, länkar och fokusringen (krav 4.5:1 resp. 3:1). */
+:root {
+  --accent: #9DBA6A; /* byts per webbplats */
+
+  --bas: #141719;       /* mörk grafit */
+  --text: #E8F1F2;      /* Linkaro ljusgrå */
+  --text-svag: #A9B5B9;
+  --linje: #2C3236;     /* dekorativ avgränsning, inte en kontrollkant */
+
+  --font-rubrik: 'Outfit', system-ui, sans-serif;
+  --font-text: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+
+  color-scheme: dark;
+}
+
+/* ---------- Bas ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bas); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-text);
+  font-size: 1.0625rem; /* 17 px mobil, 18 px från 700 px */
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bas);
+}
+p { margin: 0; }
+img { max-width: 100%; height: auto; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: 100%; max-width: 720px; margin: 0 auto; padding-inline: 24px; }
+
+/* ---------- Innehåll ---------- */
+main { flex: 1; display: flex; align-items: center; padding-block: 40px 56px; }
+
+.logo { display: block; width: 156px; margin-bottom: 48px; }
+
+.namn {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+  font-family: var(--font-rubrik); font-weight: 600; font-size: 1.0625rem; letter-spacing: 0.01em;
+  color: var(--accent);
+}
+.namn::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+h1 {
+  margin: 0 0 20px;
+  font-family: var(--font-rubrik); font-weight: 600;
+  font-size: clamp(2.125rem, 1.4rem + 3vw, 3.25rem);
+  line-height: 1.12; letter-spacing: -0.015em;
+  color: var(--text);
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+@media (max-width: 340px) { h1 { hyphens: auto; } }
+
+.ingress { max-width: 34em; margin-bottom: 32px; font-size: 1.1875rem; }
+.kontakt { font-size: 1.0625rem; }
+
+/* ---------- Sidfot ---------- */
+footer { padding-block: 24px 32px; font-size: 0.9375rem; color: var(--text-svag); }
+footer .wrap { border-top: 1px solid var(--linje); padding-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.lankar { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; padding: 0; list-style: none; }
+.lankar a { display: inline-block; padding-block: 4px; } /* minst 24 px klickyta (WCAG 2.5.8) */
+
+/* ---------- Större skärmar ---------- */
+@media (min-width: 700px) {
+  body { font-size: 1.125rem; }
+  .wrap { padding-inline: 40px; }
+  main { padding-block: 56px 72px; }
+  .logo { width: 196px; margin-bottom: 64px; }
+  .ingress { font-size: 1.25rem; }
+  .kontakt { font-size: 1.125rem; }
+}
+
+/* ---------- Utskrift ---------- */
+@media print {
+  :root { --bas: #fff; --text: #000; --text-svag: #333; --accent: #000; color-scheme: light; }
+  .logo { display: none; }
+}
